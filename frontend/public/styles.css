@@ -1,0 +1,122 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background: rgb(255, 255, 255);
+  padding: 0 16px;
+  margin:auto
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+  margin: auto -16px;
+  padding: 100px 3px;
+  box-shadow: 0 0 30px 0 #946f94;
+}
+
+header h1 {
+  color: rgb(73, 70, 70);
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 50px;
+  text-shadow: 5xp 5xp 10xp rgb(80, 75, 75);
+  text-align: center;
+}
+
+.header-image {
+  background-image:("image_background.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+footer {
+  position:fixed;
+  text-align:center;
+  margin: auto;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  font-display: bold;
+ 
+}
+
+footer p {
+  color: #ccc;
+}
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin-left: 50px;
+  margin-bottom: 30px;
+  float: left;
+}
+.note h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+  color: rgb(73, 70, 70);
+}
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: rgb(73, 70, 70);
+}
+
+.note button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: #ffd3fb;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+form {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+form input,
+form textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+form button {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background:#ffd3fb;
+  color: rgb(73, 70, 70);
+  border: none;
+  border-radius: 10%;
+  width: 72px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+  
