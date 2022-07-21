@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 const apiUrl = "http://localhost:4000";
 
-export default function Create() {
+export default function Create(props) {
   const [note, setNote] = React.useState({
     title: "",
     content: "",
@@ -22,6 +22,7 @@ export default function Create() {
     setNote({
       title: "",
       content: "",
+      id: ""
     });
 
     const newNote = {
@@ -33,6 +34,8 @@ export default function Create() {
 
     axios.post(apiUrl, newNote);
     console.log(note);
+    props.submitClick();
+
   }
 
   return (
