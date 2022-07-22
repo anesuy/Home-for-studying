@@ -25,7 +25,7 @@ export default function App() {
   const handleDelete = async (id) => {
     try {
       await deleteNote(id);
-            searchNote();
+      searchNote();
     } catch (err) {
       console.log(err);
     }
@@ -41,7 +41,7 @@ export default function App() {
         }
       })
       .then((jsonRes) => setNotes(jsonRes));
-  }
+  };
 
   React.useEffect(() => {
     searchNote();
@@ -58,8 +58,7 @@ export default function App() {
             path="/"
             element={
               <>
-                <Create />
-
+                <Create submitClick={() => searchNote()} />
                 {notes.map((note) => (
                   <Notes
                     key={note._id}
