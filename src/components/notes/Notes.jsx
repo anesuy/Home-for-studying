@@ -11,7 +11,7 @@ export default function Notes() {
         return (
           <NotesItem
             key={note.id}
-            id={note}
+            id={note.id}
             titleNote={note.title}
             contentNote={note.content}
             content={note}

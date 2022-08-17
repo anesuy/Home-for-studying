@@ -1,9 +1,12 @@
+import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const NotesContext = createContext();
 
 export const NotesProvider = ({ children }) => {
+  const axios = require("axios").default;
+
   //------ CREATING NOTES
 
   const [note, setNote] = useState({
@@ -41,44 +44,54 @@ export const NotesProvider = ({ children }) => {
   //------ NOTES
 
   const [visible, setVisible] = useState(true);
-  const [notes, setNotes] = useState([
-    {
-      title: "teste",
-      content: "teste",
-    },
-  ]);
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     fetchNotes();
-  }, []);
+  },[]);
 
   const hideButton = () => {
-    setVisible(false)
-  }
+    setVisible(false);
+  };
 
   const fetchNotes = async () => {
-    const notesResponse = await fetch("http://localhost:5000/notes?_sort=id&_order=desc");
-    const dataNotes = await notesResponse.json();
-    setNotes(dataNotes);
+    try {
+      const notesResponse = await axios.get(
+        "http://localhost:5000/notes?_sort=id&_order=desc"
+      );
+      const dataNotes = notesResponse.data;
+      setNotes(dataNotes);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const addNote = async (newNote) => {
-    const responseNotes = await fetch("http://localhost:5000/notes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newNote),
-    });
-    const dataNote = await responseNotes.json();
-    setNotes([dataNote, ...notes]);
+    try {
+      const responseNotes = await axios.post("http://localhost:5000/notes",
+      { title: newNote.title,
+        content: newNote.content,
+        id: uuidv4()
+        
+      }).then(() => {
+        const dataNote = responseNotes.data;
+        setNotes([dataNote, ...notes]);
+        console.log(dataNote)
+      })
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const deleteNote = async (id) => {
-    await fetch(`http://localhost:5000/notes/${id}`, {
-      method: "DELETE",
-    });
-    setNotes(notes.filter((note) => note.id !== id));
+    try {
+      await axios.delete(`http://localhost:5000/notes/${id}`)
+      .then(() => {
+        setNotes(notes.filter((note) => note.id !== id));
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // setTimeout(() => {

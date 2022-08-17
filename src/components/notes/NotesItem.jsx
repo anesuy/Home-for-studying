@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { BiTrashAlt } from "react-icons/bi";
 import NotesContext from "../../context/notesContext";
 
-export default function NotesItem({titleNote, contentNote, content, id}) {
+export default function NotesItem({titleNote, contentNote, id}) {
 
   const { deleteNote } = useContext(NotesContext);
 
