@@ -3,7 +3,7 @@ import { useContext } from "react";
 import NotesContext from "../../context/notesContext";
 
 export default function Header() {
-  const { visible, hideButton } = useContext(NotesContext);
+  const { visible, hideButton, margin } = useContext(NotesContext);
 
   const dateToday = new Date();
 
@@ -36,7 +36,7 @@ export default function Header() {
     }, 1000);
   }, []);
 
-  if (visible === true) {
+  if (visible.current.value === true) {
     return (
       <div>
         <div className="relogio">
@@ -62,15 +62,16 @@ export default function Header() {
           </div>
         </div>
         <div>
-          <button className="hide-button"> Hide </button>
+          <button style={{margin:`${margin}`}} className="hide-button" onClick={() => hideButton()}> Esconder Relógio </button>
         </div>
       </div>
     );
   } else {
     return (
-      <div className="hide-button">
-        <button type="submit" onClick={() => hideButton()}> Unhide Clock </button>
+      <div >
+        <button style={{margin:`${margin}`}} className="hide-button" type="submit" onClick={() => hideButton()}> Mostrar relógio </button>
       </div>
     );
+    
   }
 }

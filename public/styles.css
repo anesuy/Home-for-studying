@@ -38,14 +38,10 @@ html {
   border-radius: 8px;
   letter-spacing: 3px;
   position: relative;
-  margin: -25px auto 10px auto ;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  
-
 }
 
 .relogio div {

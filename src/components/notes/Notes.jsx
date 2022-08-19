@@ -7,10 +7,10 @@ export default function Notes() {
 
   return (
     <>
-      {notes.map((note) => {
+      {notes.map((note, index) => {
         return (
           <NotesItem
-            key={note.id}
+            key={1/index}
             id={note.id}
             titleNote={note.title}
             contentNote={note.content}

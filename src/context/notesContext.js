@@ -1,11 +1,16 @@
 import axios from "axios";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
+const API = process.env.API_LOCALHOST;
+
+const JSON_API = axios.create({
+  baseURL: API,
+ })
 
 const NotesContext = createContext();
 
 export const NotesProvider = ({ children }) => {
-  const axios = require("axios").default;
+  
 
   //------ CREATING NOTES
 
@@ -43,41 +48,39 @@ export const NotesProvider = ({ children }) => {
 
   //------ NOTES
 
-  const [visible, setVisible] = useState(true);
+  const isVisibleRef = useRef({value:true})
   const [notes, setNotes] = useState([]);
-
+  const marginArray = ["-25px auto 10px auto ", "10px auto"];
+  const [margin, setMargin] = useState(marginArray[1])
+  
   useEffect(() => {
     fetchNotes();
-  },[]);
+  }, []);
 
-  const hideButton = () => {
-    setVisible(false);
-  };
+  const hideButton = useCallback(() => {
+    isVisibleRef.current.value = !isVisibleRef.current.value;
+    if (isVisibleRef.current.value === true) {
+      return setMargin(marginArray[0]) }
+    else { setMargin(marginArray[1]) }
+  }, [isVisibleRef.current.value, margin]);
 
   const fetchNotes = async () => {
-    try {
-      const notesResponse = await axios.get(
-        "http://localhost:5000/notes?_sort=id&_order=desc"
-      );
-      const dataNotes = notesResponse.data;
-      setNotes(dataNotes);
-    } catch (error) {
-      console.log(error);
-    }
+    const notesResponse = await JSON_API.get("/notes");
+    const dataNotes = notesResponse.data;
+    setNotes(dataNotes);
   };
 
   const addNote = async (newNote) => {
     try {
-      const responseNotes = await axios.post("http://localhost:5000/notes",
-      { title: newNote.title,
-        content: newNote.content,
-        id: uuidv4()
-        
-      }).then(() => {
-        const dataNote = responseNotes.data;
+      const responseNotes = await JSON_API.post(`/notes`,
+        { title: newNote.title,
+          content: newNote.content,
+          id: uuidv4()
+        })
+       const dataNote = responseNotes.data;
         setNotes([dataNote, ...notes]);
         console.log(dataNote)
-      })
+        fetchNotes()
     } catch (error) {
       console.log(error);
     }
@@ -85,7 +88,7 @@ export const NotesProvider = ({ children }) => {
 
   const deleteNote = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/notes/${id}`)
+      await JSON_API.delete(`/notes/${id}`)
       .then(() => {
         setNotes(notes.filter((note) => note.id !== id));
       });
@@ -103,8 +106,7 @@ export const NotesProvider = ({ children }) => {
       value={{
         notes: notes,
         setNotes: setNotes,
-        visible: visible,
-        setVisible: setVisible,
+        visible: isVisibleRef,
         deleteNote: deleteNote,
         addNote: addNote,
         note: note,
@@ -112,6 +114,7 @@ export const NotesProvider = ({ children }) => {
         handleSubmit: handleSubmit,
         handleChange: handleChange,
         hideButton: hideButton,
+        margin: margin,
       }}
     >
       {children}
