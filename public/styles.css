@@ -1,15 +1,17 @@
 html {
-  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  margin: 0 auto;
   min-height: 100%;
+  background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+  animation: animate 7.5s ease-in-out infinite;
 }
+
 .Header {
   margin: 0%;
-
 }
 
 .body {
   height: 100%;
-  
 }
 
 .relogio {
@@ -17,31 +19,28 @@ html {
   align-items: center;
   justify-content: center;
   /* Serve para dar o espaçamento entre os itens. */
-  height: 20rem;
+  height: 15rem;
   background-size: cover;
   background-position: 0%;
-  background-image: url(image_background.jpg);
+  /*background-image: url(image_background.jpg);*/
   background-size: cover;
 
   border-radius: 3px;
-  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5);
+  /*box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5);*/
   margin: 0cm;
 }
+
 .hide-button {
-  padding: 20px 50px;
-  margin-top: -25px;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  background: #87272f;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+  padding: 20px 50px 20px;
+  margin-top: -15px;
+  font-size: 0.8em;
+  margin-bottom: 6px;
+  color: rgb(73, 70, 70);
+  background: rgba(255, 255, 255, 0.651);
   border-radius: 8px;
-  letter-spacing: 3px;
-  position: relative;
+  letter-spacing: 0.5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  transition: flex 0.7s ease-in;  
 }
 
 .relogio div {
@@ -53,7 +52,7 @@ html {
   min-height: 8.625rem;
   min-width: 9.375rem;
   color: #fff;
-  background: #87272f;
+  background: #4f285f;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   letter-spacing: 3px;
@@ -71,9 +70,7 @@ html {
 
 .Footer {
   text-align: center;
-  background: #87272f;
   visibility: hidden;
-
 }
 
 .Footer p{
@@ -82,29 +79,15 @@ html {
   visibility:hidden;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  font-family: "Montserrat", sans-serif;
-}
-body {
-  background: rgb(230, 193, 193);
-  padding: 0;
-  margin: auto;
-}
-
 header {
-  background-image: ("/image_background.jpg");
   margin: auto 0;
   padding: 10px 3px;
+  height: 15px;
 }
 
 header h1 {
   color: rgb(73, 70, 70);
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 50px;
   text-shadow: 5xp 5xp 10xp rgb(80, 75, 75);
@@ -112,16 +95,9 @@ header h1 {
   padding: 0 0 0 50px;
 }
 
-.header-image {
-  background-image: ("/image_background.jpg");
-  background-position: center;
-  background-size: cover;
-}
-
 footer {
   position: relative;
   text-align: center;
-  
   margin: 0%;
   bottom: 0;
   width: 100%;
@@ -132,26 +108,38 @@ footer {
 footer p {
   color: black;
   padding: 10px 0;
-  
   text-align: center;
 }
 
+.notes-block {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  margin: 0;
+  right: -50px;
+  top: 20px;
+}
+
 .note {
-  background: rgb(249, 221, 221);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.651);
   border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
   padding: 10px;
   width: 220px;
   margin-left: 50px;
   margin-bottom: 50px;
   float: left;
 }
+
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;
   color: rgb(73, 70, 70);
   text-align: left;
 }
+
 .note p {
   font-size: 1.1em;
   margin-bottom: 10px;
@@ -164,7 +152,7 @@ footer p {
   position: relative;
   float: right;
   margin-right: 10px;
-  color: #f49393;
+  background: #4f285f;
   border: none;
   width: 36px;
   height: 36px;
@@ -175,16 +163,17 @@ footer p {
 }
 
 form {
-  position: relative;
-  width: 480px;
+  position: relative; 
+  max-width: 480px;
   margin: 15px auto 60px auto;
-  background: rgb(242, 228, 228);
+  background: rgba(255, 255, 255, 0.651);
   padding: 15px;
   border-radius: 7px;
-  box-shadow: 0 1px 5px rgb(138, 137, 137);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
   top:30px;
+  text-align: center;
+  justify-content: center;
 }
-
 
 form input,
 form textarea {
@@ -195,15 +184,15 @@ form textarea {
   font-size: 1.2em;
   font-family: inherit;
   resize: none;
-  background: rgb(242, 228, 228);
+  background-color: transparent;
 }
 
 form button {
   position: absolute;
   right: 18px;
   bottom: -18px;
-  background: #f49393;
-  color: rgb(73, 70, 70);
+  background: #4f285f;
+  color: rgba(255, 255, 255, 0.774);
   border: none;
   border-radius: 10%;
   width: 72px;
@@ -211,4 +200,16 @@ form button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+@keyframes animate{
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
 }

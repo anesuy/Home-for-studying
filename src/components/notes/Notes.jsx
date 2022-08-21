@@ -6,7 +6,7 @@ export default function Notes() {
   const { notes } = useContext(NotesContext);
 
   return (
-    <>
+    <div className="notes-block">
       {notes.map((note, index) => {
         return (
           <NotesItem
@@ -18,6 +18,6 @@ export default function Notes() {
           />
         );
       })}
-    </>
+    </div>
   );
 };

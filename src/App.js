@@ -10,20 +10,19 @@ function App() {
     <NotesProvider>
       <Router>
         <Header />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <>
-                <Create />
-                <Notes />
-              </>
-            }
-          />
-        </Routes>
+          <Routes>
+            <Route
+                exact path="/"
+                element={
+                  <>
+                    <Create />
+                    <Notes />
+                  </>
+               }
+            />
+          </Routes>
+        <Footer />
       </Router>
-      <Footer />
     </NotesProvider>
   );
 }

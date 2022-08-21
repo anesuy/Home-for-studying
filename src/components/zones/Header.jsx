@@ -69,7 +69,7 @@ export default function Header() {
   } else {
     return (
       <div >
-        <button style={{margin:`${margin}`}} className="hide-button" type="submit" onClick={() => hideButton()}> Mostrar relógio </button>
+        <button style={{margin:`${margin}`}} className="hide-button" onClick={() => hideButton()}> Mostrar relógio </button>
       </div>
     );
     
