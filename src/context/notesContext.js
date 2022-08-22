@@ -75,7 +75,7 @@ export const NotesProvider = ({ children }) => {
       const responseNotes = await JSON_API.post(`/notes`,
         { title: newNote.title,
           content: newNote.content,
-          id: uuidv4()
+          id: newNote.id,
         })
        const dataNote = responseNotes.data;
         setNotes([dataNote, ...notes]);

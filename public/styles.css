@@ -2,7 +2,7 @@ html {
   font-family: "Montserrat", sans-serif;
   margin: 0 auto;
   min-height: 100%;
-  background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+  background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #76ffe1 87%, #f7c978 100%);
   animation: animate 7.5s ease-in-out infinite;
 }
 
@@ -131,6 +131,7 @@ footer p {
   margin-left: 50px;
   margin-bottom: 50px;
   float: left;
+  display: inline-block;
 }
 
 .note h1 {

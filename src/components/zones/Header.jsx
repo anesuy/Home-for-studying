@@ -62,14 +62,14 @@ export default function Header() {
           </div>
         </div>
         <div>
-          <button style={{margin:`${margin}`}} className="hide-button" onClick={() => hideButton()}> Esconder Relógio </button>
+          <button style={{margin:`${margin}`}} className="hide-button" onClick={() => hideButton()}> Hide clock </button>
         </div>
       </div>
     );
   } else {
     return (
       <div >
-        <button style={{margin:`${margin}`}} className="hide-button" onClick={() => hideButton()}> Mostrar relógio </button>
+        <button style={{margin:`${margin}`}} className="hide-button" onClick={() => hideButton()}> Show clock </button>
       </div>
     );
     
